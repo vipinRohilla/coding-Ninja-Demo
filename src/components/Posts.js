@@ -23,7 +23,10 @@ export const Posts = ({events, loading}) => {
                                           <div className="circle"></div>
                                           <p>
                                             Registration <b>open</b> till{" "}
-                                            <b> 19 Jun, 09:30 PM</b>
+                                            <b> {new Date(currele.registration_end_time*1000).getDate()} {
+                                        
+                                        new Intl.DateTimeFormat('en-US', { month: 'long'}).format(new Date(currele.registration_end_time*1000))
+                                            }, {new Date(currele.registration_end_time*1000).toLocaleTimeString('en-US').slice(-11,-6) + " " + new Date(currele.registration_end_time*1000).toLocaleTimeString('en-US').slice(8,12)}</b>
                                           </p>
                                         </div>
                                       </div>
@@ -38,7 +41,10 @@ export const Posts = ({events, loading}) => {
                                             <b>Starts on</b>
                                           </p>
                                           <p className="item-value">
-                                            09:00 PM, 19 Jun 2021
+                                            {new Date(currele.event_start_time*1000).toLocaleTimeString('en-US').slice(-11,-6) + " " + new Date(currele.event_start_time*1000).toLocaleTimeString('en-US').slice(8, 12)}, {new Date(currele.event_start_time*1000).getDate()} {
+                                        
+                                        new Intl.DateTimeFormat('en-US', { month: 'long'}).format(new Date(currele.event_start_time*1000))
+                                            } {new Date(currele.event_start_time*1000).getFullYear()}
                                           </p>
                                         </div>
                                         <div className="event-info-item price">
